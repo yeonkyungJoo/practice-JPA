@@ -1,13 +1,11 @@
 package com.example.jpashop.modules.delivery;
 
+import com.example.jpashop.modules.member.Address;
 import com.example.jpashop.modules.order.Order;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 @Getter @Setter
@@ -16,8 +14,12 @@ public class Delivery {
     @Id @GeneratedValue
     private Long id;
 
-    @OneToOne
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
     private Order order;
+
+    @Embedded
     private Address address;
-    private DeliverStatus status;
+
+    @Enumerated(EnumType.STRING)
+    private DeliveryStatus status;
 }
