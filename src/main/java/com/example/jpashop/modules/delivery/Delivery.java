@@ -2,6 +2,7 @@ package com.example.jpashop.modules.delivery;
 
 import com.example.jpashop.modules.member.Address;
 import com.example.jpashop.modules.order.Order;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,7 @@ public class Delivery {
     @Id @GeneratedValue
     private Long id;
 
+    // @JsonIgnore
     @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
     private Order order;
 

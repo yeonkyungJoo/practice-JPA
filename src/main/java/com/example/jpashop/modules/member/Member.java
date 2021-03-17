@@ -1,6 +1,7 @@
 package com.example.jpashop.modules.member;
 
 import com.example.jpashop.modules.order.Order;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +21,7 @@ public class Member {
     @Embedded
     private Address address;
 
+    // @JsonIgnore
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 }

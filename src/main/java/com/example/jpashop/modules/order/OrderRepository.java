@@ -96,4 +96,8 @@ public class OrderRepository {
 
         return query.getResultList();
     }
+
+    public List<Order> findAll() {
+        return em.createQuery("select o from Order o", Order.class).getResultList();
+    }
 }
